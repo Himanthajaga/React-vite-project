@@ -1,0 +1,26 @@
+.navbar{
+    padding: 1px;
+    background-color: rgb(68 69 70);
+    color: white;
+    font-size: 1rem;
+}
+.navbar a{
+    color: #43e68e;
+    text-decoration: none;
+}
+.navbar-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+    font-size: 1.2rem;
+}
+.navbar-links a{
+    margin: 0 10px;
+
+}
+.navbar-links a:hover{
+    text-decoration: underline;
+    color: black;
+}
