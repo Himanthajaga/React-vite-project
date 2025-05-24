@@ -1,17 +1,19 @@
 import './Footer.css'
+import {Link} from "react-router-dom";
+import logo from "../../../assets/image1.png";
 export function Footer() {
     return (
-        <div className={"footer"}>
-            <div className="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-                <a href={"#login"} className="login-button">Login</a>
-                <a href={"#register"} className="register-button">Register</a>
-
+        <footer className="footer">
+            <img className="imgnav" src={logo} alt="logo"/>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+            </ul>
+            <div className="footer-copyright">
+                &copy; {new Date().getFullYear()} Your Company. All rights reserved.
             </div>
-        </div>
+        </footer>
     );
 }
 

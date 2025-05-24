@@ -1,11 +1,18 @@
 import './MainContent.css'
+import {Route, Routes} from "react-router-dom";
+import {Home} from "../../pages/Home/Home.tsx";
+import {About} from "../../pages/About/About.tsx";
+import  * as React from "react";
+import {Contact} from "../../pages/Contact/Contact.tsx";
 export function MainContent() {
     return (
         <div className={"main-content"}>
-            <h1>Welcome to the Main Content Area</h1>
-            <p>This is where the main content of your application will go.</p>
-            <p>You can add more components and styles as needed.</p>
-            <p>Feel free to customize this area to fit your application's needs.</p>
+           <Routes>
+                <Route path= "/" element={<Home /> }/>
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+               {/*<Route path="/login" element={<Login />} />*/}
+           </Routes>
         </div>
     );
 }

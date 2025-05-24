@@ -1,20 +1,20 @@
 import './Navbar.css';
-
+import {Link} from "react-router-dom";
+import logo from '../../../assets/image1.png'; // Assuming you have a logo image in this path
 export function Navbar() {
     return (
-        <div className="navbar">
-            <div className="navbar-logo">
-                <img src="src/assets/react.svg" alt="Logo" />
+            <div className="navbar">
+                <img className="imgnav" src={logo} alt="logo"/>
+                <p className="nav-title">My Website</p>
+                <ul>
+               <li><Link to = "/">Home</Link></li>
+                <li><Link to = "/about">About</Link></li>
+                <li><Link to = "/contact">Contact</Link></li>
+                </ul>
+                <button className="button">
+                   <Link to="/login"> Sign In</Link>
+                </button>
             </div>
-            <div className="navbar-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-                <a href={"#login"} className="login-button">Login</a>
-                <a href={"#register"} className="register-button">Register</a>
-
-            </div>
-        </div>
     );
 }
+export default Navbar;
