@@ -1,6 +1,5 @@
 import './Contact.css';
 import {useForm} from "react-hook-form";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type FormData = {
     email: string;
     subject: string;
