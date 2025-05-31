@@ -6,7 +6,7 @@ import  * as React from "react";
 import {Contact} from "../../pages/Contact/Contact.tsx";
 export function MainContent() {
     return (
-        <div className="bg-gray-200 p-4">
+        <div>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/about" element={<About/>}/>

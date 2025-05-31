@@ -4,10 +4,12 @@ import Navbar from "../Navbar/Navbar.tsx";
 
 export function DefaultLayout() {
     return (
-        <>
+        <div className="flex flex-col min-h-screen">
             <Navbar/>
-            <MainContent/>
+            <main className="flex-grow">
+                <MainContent/>
+            </main>
             <Footer/>
-        </>
+        </div>
     );
 }
