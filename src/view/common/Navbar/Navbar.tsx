@@ -10,6 +10,7 @@ export function Navbar() {
                 <li><Link className="text-white hover:text-black font-bold" to="/">Home</Link></li>
                 <li><Link className="text-white hover:text-black font-bold" to="/about">About</Link></li>
                 <li><Link className="text-white hover:text-black font-bold" to="/contact">Contact</Link></li>
+                <li><Link className="text-white hover:text-black font-bold" to="/shopping-cart">Shopping Cart</Link></li>
             </ul>
             <button className="bg-gradient-to-r from-blue-500 to-green-400 ml-4 bg-white text-gray-800 px-4 py-2 rounded hover:bg-green-500 hover:text-black transition-colors duration-300 ease-in-out shadow-md border border-gray-300 hover:border-green-500">
                 <Link to="/login">Sign In</Link>
