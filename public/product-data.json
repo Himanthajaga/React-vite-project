@@ -1,0 +1,58 @@
+[
+  {
+    "id":1,
+    "name": "Beans",
+    "price": 200,
+    "currency": "LKR",
+    "image": "Beans.jpg"
+  },
+  {
+    "id":2,
+    "name": "Spinach",
+    "price": 400,
+    "currency": "LKR",
+    "image": "spinach.jpg"
+  },
+  {
+  "id":3,
+  "name": "Tomato",
+  "price": 300,
+  "currency": "LKR",
+  "image": "tomato.jpg"
+  },
+  {
+    "id":4,
+    "name": "Potato",
+    "price": 250,
+    "currency": "LKR",
+    "image": "potato.jpeg"
+  },
+  {
+    "id":5,
+    "name": "Carrot",
+    "price": 350,
+    "currency": "LKR",
+    "image": "carrot.jpeg"
+  },
+  {
+    "id":6,
+    "name": "Cabbage",
+    "price": 300,
+    "currency": "LKR",
+    "image": "cabbage.jpeg"
+  },
+  {
+    "id":7,
+    "name": "Onion",
+    "price": 200,
+    "currency": "LKR",
+    "image": "onion.jpeg"
+  },
+  {
+    "id":8,
+    "name": "Garlic",
+    "price": 150,
+    "currency": "LKR",
+    "image": "garlic.jpeg"
+  }
+]
