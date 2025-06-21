@@ -1,13 +1,6 @@
-import img1 from "../../../assets/products/tomato.jpg";
 import {ModifyCart} from "../ModifyCart/ModifyCart.tsx";
 import {useState} from "react";
-type ProductData = {
-    id :number,
-    name: string,
-    price: number,
-    currency: string,
-    image: string
-}
+import type {ProductData} from "../../../model/ProductData.ts";
 type ProductProps = {
     data: ProductData
 }

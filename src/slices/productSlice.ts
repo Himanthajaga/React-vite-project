@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import type {RootState} from "../store/store.ts";
+import type {ProductData} from "../model/ProductData.ts";
 
 interface ProductState {
-    list: [],
+    list: ProductData[],
     error: string | null | undefined
 
 }
@@ -35,12 +35,12 @@ const productSlice = createSlice({
             alert("Product data is still loading...");
 
 // Async Response Complete State
-        }) .addCase(getAllProducts.fulfilled, (state:RootState, action) => {
+        }) .addCase(getAllProducts.fulfilled, (state, action) => {
             state.list = action.payload;
 // Async Response Failure State
-        }) .addCase(getAllProducts.rejected, (state:RootState, action) => {
-            state.error = (action.payload as Error)?.message || 'Failed to fetch products';
-            alert("Failed to fetch products: " + state.error);
+        }) .addCase(getAllProducts.rejected, (state, action) => {
+            state.error = action.error.message;
+            alert("Error loading :" + state.error);
         })
     }
 });

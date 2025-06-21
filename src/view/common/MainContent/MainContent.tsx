@@ -6,6 +6,8 @@ import  * as React from "react";
 import {Contact} from "../../pages/Contact/Contact.tsx";
 import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart.tsx";
 import {itemsList} from "../ModifyCart/ModifyCart.tsx";
+import {Services} from "../../pages/Services/Services.tsx";
+import {Register} from "../../pages/Register/Register.tsx";
 export function MainContent() {
     return (
         <div className="flex-justify-center items-center w-full h-full bg-gray-100 p-4">
@@ -13,6 +15,9 @@ export function MainContent() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/contact" element={<Contact/>}/>
+                <Route path="/services" element={<Services/>}/>
+                <Route path="/register" element={<Register/>}/>
+
                 <Route path="/shopping-cart" element={<ShoppingCart itemsList={itemsList}/>}/>
                 {/*<Route path="/login" element={<Login />} />*/}
             </Routes>
