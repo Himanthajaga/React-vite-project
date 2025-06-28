@@ -1,27 +1,28 @@
-import type {CartItem} from "../../../model/CartItem.ts";
+// import type {CartItem} from "../../../model/CartItem.ts";
 import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "../../../store/store.ts";
 import {decreaseQuantity, increaseQuantity} from "../../../slices/cartSlice.ts";
+import type {ProductData} from "../../../model/ProductData.ts";
 
 interface ModifyCartProps {
-    data: CartItem
+    data: ProductData
 }
 
 // export const itemsList:CartItem[] = [];
 export function ModifyCart({ data }: ModifyCartProps) {
     const dispatch = useDispatch<AppDispatch>();
     const item = useSelector((state: RootState) => state.cart.items)
-        .find(cartItem => cartItem.product.id === data.product.id)
+        .find(cartItem => cartItem.product.id === data.id)
 
     const decreaseItemCount = () => {
         if (item && item.itemCount > 1){
-            dispatch(decreaseQuantity(data.product.id));
+            dispatch(decreaseQuantity(data.id));
         }else {
             alert("Item count can't be less than 1");
         }
     }
     const increaseItemCount = () => {
-        dispatch(increaseQuantity(data.product.id));
+        dispatch(increaseQuantity(data.id));
 
     }
 

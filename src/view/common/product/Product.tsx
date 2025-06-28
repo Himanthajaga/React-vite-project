@@ -49,10 +49,7 @@ const item = useSelector((state: RootState) =>
             <div className="flex justify-center">
                 {
                     item ?(
-                        <ModifyCart data={{
-                            product: data,
-                            itemCount: 1
-                        }}/>
+                        <ModifyCart data={data}/>
                     ) : (
                         <button className="bg-gradient-to-r from-blue-500 to-green-400 text-white text-[12px] px-2 py-1 rounded mt-2"
                                 onClick={addToCart}>
