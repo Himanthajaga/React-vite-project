@@ -1,8 +1,7 @@
 import {ModifyCart} from "../ModifyCart/ModifyCart.tsx";
-import {useState} from "react";
 import type {ProductData} from "../../../model/ProductData.ts";
-import {useDispatch} from "react-redux";
-import type {AppDispatch} from "../../../store/store.ts";
+import {useDispatch, useSelector} from "react-redux";
+import type {AppDispatch, RootState} from "../../../store/store.ts";
 import {addItemToCart} from "../../../slices/cartSlice.ts";
 type ProductProps = {
     data: ProductData
@@ -14,7 +13,6 @@ const images: Record<string, string> = import.meta.glob('../../../assets/product
     import: 'default'
 });
 export function Product({data}: ProductProps) {
-    // console.log(images);
     console.log(`../../../assets/${data.image}`)
 
     console.log(data)
@@ -22,12 +20,14 @@ export function Product({data}: ProductProps) {
 
     const image =images[`../../../assets/products/${data.image}`];
    const dispatch = useDispatch<AppDispatch>();
-
-    const [isActive, setIsActive] = useState(false);
+const item = useSelector((state: RootState) =>
+    state.cart.items.find(cartItem =>
+        cartItem.product.id === data.id));
+    // const [isActive, setIsActive] = useState(false);
 
     const addToCart = () => {
         dispatch(addItemToCart(data))
-       setIsActive(true);
+       // setIsActive(true);
     }
 
 
@@ -48,7 +48,7 @@ export function Product({data}: ProductProps) {
             </div>
             <div className="flex justify-center">
                 {
-                    isActive ?(
+                    item ?(
                         <ModifyCart data={{
                             product: data,
                             itemCount: 1

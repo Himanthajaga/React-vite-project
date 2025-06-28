@@ -1,10 +1,8 @@
-// import './MainContent.css'
 import {Route, Routes} from "react-router-dom";
 import {Home} from "../../pages/Home/Home.tsx";
 import {About} from "../../pages/About/About.tsx";
 import {Contact} from "../../pages/Contact/Contact.tsx";
 import {ShoppingCart} from "../../pages/ShoppingCart/ShoppingCart.tsx";
-// import {itemsList} from "../ModifyCart/ModifyCart.tsx";
 import {Services} from "../../pages/Services/Services.tsx";
 import {Register} from "../../pages/Register/Register.tsx";
 export function MainContent() {

@@ -10,21 +10,17 @@ interface ModifyCartProps {
 // export const itemsList:CartItem[] = [];
 export function ModifyCart({ data }: ModifyCartProps) {
     const dispatch = useDispatch<AppDispatch>();
-    // const [itemCount, setItemCount]
-    //     = useState(1);
     const item = useSelector((state: RootState) => state.cart.items)
         .find(cartItem => cartItem.product.id === data.product.id)
 
     const decreaseItemCount = () => {
         if (item && item.itemCount > 1){
-            // setItemCount((prev) => prev -1)
             dispatch(decreaseQuantity(data.product.id));
         }else {
             alert("Item count can't be less than 1");
         }
     }
     const increaseItemCount = () => {
-        // setItemCount((prev) => prev + 1);
         dispatch(increaseQuantity(data.product.id));
 
     }
