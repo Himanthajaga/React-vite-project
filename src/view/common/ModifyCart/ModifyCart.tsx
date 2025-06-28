@@ -1,44 +1,32 @@
-import {useEffect, useState} from "react";
 import type {CartItem} from "../../../model/CartItem.ts";
+import {useDispatch, useSelector} from "react-redux";
+import type {AppDispatch, RootState} from "../../../store/store.ts";
+import {decreaseQuantity, increaseQuantity} from "../../../slices/cartSlice.ts";
 
 interface ModifyCartProps {
     data: CartItem
 }
 
-export const itemsList:CartItem[] = [];
+// export const itemsList:CartItem[] = [];
 export function ModifyCart({ data }: ModifyCartProps) {
-    const [itemCount, setItemCount]
-        = useState(1);
+    const dispatch = useDispatch<AppDispatch>();
+    // const [itemCount, setItemCount]
+    //     = useState(1);
+    const item = useSelector((state: RootState) => state.cart.items)
+        .find(cartItem => cartItem.product.id === data.product.id)
 
-    useEffect(() => {
-
-        const existingItem = itemsList
-            .find(item =>
-                item.product.id === data.product.id);
-        console.log( data);
-        if (existingItem) {
-            existingItem.itemCount = itemCount;
-        } else {
-            itemsList.push({
-                product: data.product,
-                itemCount: itemCount
-            });
-        }
-        console.log(itemsList);
-    }, [itemCount, data])
     const decreaseItemCount = () => {
-        setItemCount(prevValue =>
-            prevValue > 1
-                ? prevValue - 1
-                : (alert("Item count can't " +
-                        "be less than 1"),
-                        prevValue
-                )
-        )
+        if (item && item.itemCount > 1){
+            // setItemCount((prev) => prev -1)
+            dispatch(decreaseQuantity(data.product.id));
+        }else {
+            alert("Item count can't be less than 1");
+        }
     }
     const increaseItemCount = () => {
-        setItemCount(prvCount =>
-            prvCount + 1)
+        // setItemCount((prev) => prev + 1);
+        dispatch(increaseQuantity(data.product.id));
+
     }
 
     return (
@@ -49,7 +37,7 @@ export function ModifyCart({ data }: ModifyCartProps) {
                  rounded-lg h-5 w-5"
                     onClick={decreaseItemCount}>-</button>
             <small
-                className="text-[8px]">{itemCount}</small>
+                className="text-[8px]">{item?.itemCount}</small>
             <button className="float-right
                  text-[8px] bg-yellow-300
                  rounded-lg h-5 w-5"

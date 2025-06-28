@@ -1,9 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
-import productReducer from "../slices/productSlice.ts";
+import {rootReducer} from "../slices/rootReducers.ts";
 export const store = configureStore({
-    reducer: {
-        products : productReducer
-    }
+    reducer: rootReducer,
 })
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
