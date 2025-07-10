@@ -18,8 +18,6 @@ const initialState: ProductState = {
 export const getAllProducts = createAsyncThunk(
     'product/getAllProducts',
     async () => {
-        // const response = await fetch('./product-data.json');
-        // return await response.json();
        const response = await backendApi.get("/products/all");
        return await response.data;
     }

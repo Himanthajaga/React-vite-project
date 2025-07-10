@@ -1,5 +1,6 @@
 // import './Contact.css';
 import {useForm} from "react-hook-form";
+import axios from "axios";
 type FormData = {
     email: string;
     subject: string;
@@ -8,13 +9,18 @@ type FormData = {
 export function Contact() {
     const {register,
         handleSubmit,
-        formState: {errors}} = useForm();
+        formState: {errors}} = useForm<FormData>();
 
-    const  onSubmit = (data: FormData) => {
-        console.log('Form submitted:', data);
-        alert(`Thank you for contacting us, ${data.subject}! We will get back to you soon.`);
-        // Here you can handle the form submission, e.g., send data to an API
-}
+    const  onSubmit = async (data: FormData) => {
+        try {
+            const response = await axios.post("http://localhost:3000/api/contact/save", data);
+            console.log("Form submitted successfully:", response.data);
+            alert(`Thank you for contacting us, ${data.subject}! We will get back to you soon.`);
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("There was an error submitting the form. Please try again later.");
+        }
+};
     return (
        <div className="max-w-md mx-auto mt-10 p-6 bg-green-500 rounded-lg text-white">
         <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
