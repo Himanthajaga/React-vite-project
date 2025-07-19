@@ -30,10 +30,10 @@ const productSlice = createSlice({
     initialState: initialState,
     reducers:{},
     extraReducers:(builder) => {
+
 //Async Response pending
         builder.addCase(getAllProducts.pending, () => {
             alert("Product data is still loading...");
-
 // Async Response Complete State
         }) .addCase(getAllProducts.fulfilled, (state, action) => {
             state.list = action.payload;
